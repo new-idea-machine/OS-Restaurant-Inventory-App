@@ -1,3 +1,18 @@
+import React from 'react'
+
+const RegisterForm = () => {
+  return (
+    <div>RegisterForm</div>
+  )
+}
+
+export default RegisterForm
+
+
+
+
+
+
 // import { Component } from "react";
 // // import { Formik, Field, Form, ErrorMessage } from "formik";
 // // import * as Yup from "yup";
