@@ -1,122 +1,82 @@
-import React from 'react'
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+// import { ReactComponent as LockIcon } from "./lock-icon.svg"; // Import your SVG or icon
 
 const RegisterForm = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  // const handleRegister = async () => {
+  //   // Add your registration logic here
+  // };
+
   return (
-    <div>RegisterForm</div>
-  )
-}
+    <>
+      <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-md shadow-md">
+          <div className="flex items-center justify-center">
+            {/* <LockIcon className="w-10 h-10 bg-primary-light text-white rounded-full" /> */}
+          </div>
+          <h2 className="text-3xl font-extrabold text-center">Register</h2>
+          <form className="mt-4 space-y-4">
+            <div>
+              <input
+                type="text"
+                name="name"
+                autoComplete="name"
+                required
+                className="appearance-none rounded-md block w-full px-3 py-2 border focus:outline-none focus:ring focus:border-primary-light"
+                placeholder="Name"
+                value={name}
+                // onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                type="email"
+                name="email"
+                autoComplete="email"
+                required
+                className="appearance-none rounded-md block w-full px-3 py-2 border focus:outline-none focus:ring focus:border-primary-light"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                type="password"
+                name="password"
+                autoComplete="current-password"
+                required
+                className="appearance-none rounded-md block w-full px-3 py-2 border focus:outline-none focus:ring focus:border-primary-light"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <button
+              type="button"
+              // onClick={handleRegister}
+              className="w-full bg-primary-light text-white py-2 px-4 rounded-md hover:bg-primary-dark focus:outline-none focus:ring focus:border-primary-dark"
+            >
+              Register
+            </button>
+          </form>
+          <div className="text-sm text-right mt-4">
+            <Link to="/login" className="text-primary-light">
+              Already have an account? Login
+            </Link>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default RegisterForm
+export default RegisterForm;
 
 
 
 
-
-
-// import { Component } from "react";
-// // import { Formik, Field, Form, ErrorMessage } from "formik";
-// // import * as Yup from "yup";
-
-// // import AuthService from "../services/auth.service";
-
-// type Props = {};
-
-// type State = {
-//   username: string,
-//   email: string,
-//   password: string,
-//   successful: boolean,
-//   message: string
-// };
-
-// export default class Register extends Component<Props, State> {
-//   constructor(props: Props) {
-//     super(props);
-//     this.handleRegister = this.handleRegister.bind(this);
-
-//     this.state = {
-//       username: "",
-//       email: "",
-//       password: "",
-//       successful: false,
-//       message: ""
-//     };
-//   }
-
-//   validationSchema() {
-//     return Yup.object().shape({
-//       username: Yup.string()
-//         .test(
-//           "len",
-//           "The username must be between 3 and 20 characters.",
-//           (val: any) =>
-//             val &&
-//             val.toString().length >= 3 &&
-//             val.toString().length <= 20
-//         )
-//         .required("This field is required!"),
-//       email: Yup.string()
-//         .email("This is not a valid email.")
-//         .required("This field is required!"),
-//       password: Yup.string()
-//         .test(
-//           "len",
-//           "The password must be between 6 and 40 characters.",
-//           (val: any) =>
-//             val &&
-//             val.toString().length >= 6 &&
-//             val.toString().length <= 40
-//         )
-//         .required("This field is required!"),
-//     });
-//   }
-
-//   handleRegister(formValue: { username: string; email: string; password: string }) {
-//     const { username, email, password } = formValue;
-
-//     this.setState({
-//       message: "",
-//       successful: false
-//     });
-
-//     AuthService.register(
-//       username,
-//       email,
-//       password
-//     ).then(
-//       response => {
-//         this.setState({
-//           message: response.data.message,
-//           successful: true
-//         });
-//       },
-//       error => {
-//         const resMessage =
-//           (error.response &&
-//             error.response.data &&
-//             error.response.data.message) ||
-//           error.message ||
-//           error.toString();
-
-//         this.setState({
-//           successful: false,
-//           message: resMessage
-//         });
-//       }
-//     );
-//   }
-
-//   render() {
-//     const { successful, message } = this.state;
-
-//     const initialValues = {
-//       username: "",
-//       email: "",
-//       password: "",
-//     };
-
-//     return (
-
-//     );
-//   }
-// }
