@@ -23,11 +23,23 @@ const RegisterForm = () => {
             <div>
               <input
                 type="text"
-                name="name"
-                autoComplete="name"
+                name="firstName"
+                autoComplete="firstName"
                 required
                 className="appearance-none rounded-md block w-full px-3 py-2 border focus:outline-none focus:ring focus:border-primary-light"
-                placeholder="Name"
+                placeholder="First Name"
+                value={name}
+                // onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="lastName"
+                autoComplete="lastName"
+                required
+                className="appearance-none rounded-md block w-full px-3 py-2 border focus:outline-none focus:ring focus:border-primary-light"
+                placeholder="Last Name"
                 value={name}
                 // onChange={(e) => setName(e.target.value)}
               />
