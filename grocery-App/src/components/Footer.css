@@ -1,0 +1,19 @@
+/* Footer.css */
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100vw; /* Use 100vw to make the footer span the entire width */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 767px) {
+    .footer {
+      font-size: 14px; /* Adjust the font size for smaller screens */
+    }
+  }
+  

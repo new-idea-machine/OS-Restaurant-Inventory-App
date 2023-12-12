@@ -1,11 +1,18 @@
-import React from 'react'
+import React from 'react';
+import './Footer.css';
 
-type Props = {}
-
-const Footer = (props: Props) => {
-  return (
-    <div>Footer</div>
-  )
+interface FooterProps {
+  companyName: string;
 }
 
-export default Footer
+const Footer: React.FC<FooterProps> = ({ companyName }) => {
+  return (
+    <footer className="footer">
+      <div className="container">
+        <p>&copy; {new Date().getFullYear()} {companyName}. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
