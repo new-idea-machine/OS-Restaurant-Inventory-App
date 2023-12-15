@@ -1,28 +1,25 @@
 
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import RegisterForm from "./components/RegisterForm";
-import LoginForm from "./components/LoginForm";
-
-
-import './App.css'
+import { Container } from "react-bootstrap";
+import {Home} from "./pages/Home";
+import {Store} from "./pages/Store";
+import {About} from "./pages/About";
+import { Navbar } from "./components/Navbar";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 function App() {
-
-  // const [count, setCount] = useState(0)
-
   return (
-    <>
-   
-    
-    <Routes>
-      <Route path="/" element ={<Home />} />
-      <Route path="/register" element={<RegisterForm />} />
-      <Route path="/login" element={<LoginForm />} />
-    </Routes>
-  
-    </>
-  );
+    <ShoppingCartProvider>
+     <Navbar />
+      <Container className="mb-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Container>
+    </ShoppingCartProvider>
+  )
 }
 
 export default App
