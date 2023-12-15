@@ -9,7 +9,7 @@ export function Home() {
     <>
  <h1>Welcome to Compare App!!</h1>
 
-    <Row md={2} xs={1} lg={3} xl={4} className="g-3">
+    <Row md={2} xs={1} lg={3} xl={4} className="g-4 justify-content-right">
       {storeItems.map(item => (
         <Col key={item.id}>
           <StoreItem {...item} />
